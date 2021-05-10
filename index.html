@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "pass";
+        font-style: normal;
+        font-weight: 400;
+        src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAATsAA8AAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAcg9+z70dERUYAAAF0AAAAHAAAAB4AJwANT1MvMgAAAZAAAAA/AAAAYH7AkBhjbWFwAAAB0AAAAFkAAAFqZowMx2N2dCAAAAIsAAAABAAAAAQAIgKIZ2FzcAAAAjAAAAAIAAAACAAAABBnbHlmAAACOAAAALkAAAE0MwNYJ2hlYWQAAAL0AAAAMAAAADYPA2KgaGhlYQAAAyQAAAAeAAAAJAU+ATJobXR4AAADRAAAABwAAAAcCPoA6mxvY2EAAANgAAAAEAAAABAA5gFMbWF4cAAAA3AAAAAaAAAAIAAKAE9uYW1lAAADjAAAARYAAAIgB4hZ03Bvc3QAAASkAAAAPgAAAE5Ojr8ld2ViZgAABOQAAAAGAAAABuK7WtIAAAABAAAAANXulPUAAAAA1viLwQAAAADW+JM4eNpjYGRgYOABYjEgZmJgBEI2IGYB8xgAA+AANXjaY2BifMg4gYGVgYVBAwOeYEAFjMgcp8yiFAYHBl7VP8wx/94wpDDHMIoo2DP8B8kx2TLHACkFBkYA8/IL3QB42mNgYGBmgGAZBkYGEEgB8hjBfBYGDyDNx8DBwMTABmTxMigoKKmeV/3z/z9YJTKf8f/X/4/vP7pldosLag4SYATqhgkyMgEJJnQFECcMOGChndEAfOwRuAAAAAAiAogAAQAB//8AD3jaY2BiUGJgYDRiWsXAzMDOoLeRkUHfZhM7C8Nbo41srHdsNjEzAZkMG5lBwqwg4U3sbIx/bDYxgsSNBRUF1Y0FlZUYBd6dOcO06m+YElMa0DiGJIZUxjuM9xjkGRhU2djZlJXU1UDQ1MTcDASNjcTFQFBUBGjYEkkVMJCU4gcCKRTeHCk+fn4+KSllsJiUJEhMUgrMUQbZk8bgz/iA8SRR9qzAY087FjEYD2QPDDAzMFgyAwC39TCRAAAAeNpjYGRgYADid/fqneL5bb4yyLMwgMC1H90HIfRkCxDN+IBpFZDiYGAC8QBbSwuceNpjYGRgYI7594aBgcmOAQgYHzAwMqACdgBbWQN0AAABdgAiAAAAAAAAAAABFAAAAj4AYgI+AGYB9AAAAAAAKgAqACoAKgBeAJIAmnjaY2BkYGBgZ1BgYGIAAUYGBNADEQAFQQBaAAB42o2PwUrDQBCGvzVV9GAQDx485exBY1CU3PQgVgIFI9prlVqDwcZNC/oSPoKP4HNUfQLfxYN/NytCe5GwO9/88+/MBAh5I8C0VoAtnYYNa8oaXpAn9RxIP/XcIqLreZENnjwvyfPieVVdXj2H7DHxPJH/2/M7sVn3/MGyOfb8SWjOGv4K2DRdctpkmtqhos+D6ISh4kiUUXDj1Fr3Bc/Oc0vPqec6A8aUyu1cdTaPZvyXyqz6Fm5axC7bxHOv/r/dnbSRXCk7+mpVrOqVtFqdp3NKxaHUgeod9cm40rtrzfrt2OyQa8fppCO9tk7d1x0rpiQcuDuRkjjtkHt16ctbuf/radZY52/PnEcphXpZOcofiEZNcQAAeNpjYGIAg///GBgZsAF2BgZGJkZmBmaGdkYWRla29JzKggxD9tK8TAMDAxc2D0MLU2NjENfI1M0ZACUXCrsAAAABWtLiugAA)
+          format("woff");
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 1em;
+      }
+      .form-wrapper {
+        width: 400px;
+        margin: auto;
+        margin-top: 100px;
+        border: 2px solid gray;
+        border-radius: 5px;
+        padding: 15px;
+      }
+      .grid {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 5px;
+      }
+      .submit {
+        grid-column: 1 / span 2;
+      }
+      .text-input {
+        width: 100%;
+        padding: 5px;
+      }
+      textarea {
+        width: 100%;
+        grid-column: 1 / span 2;
+        padding: 5px;
+        overflow: auto;
+        resize: vertical;
+        min-height: 100px;
+      }
+      .button {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: gray;
+      }
+      .realtime-editor {
+        margin-top: 10px;
+      }
+      .password {
+        font-family: "pass", "Roboto", Helvetica, Arial, sans-serif;
+        font-size: 25px;
+        height: 2rem;
+        padding: 5px;
+      }
+      .password::-webkit-input-placeholder {
+        transform: scale(20);
+        transform-origin: 0 50%;
+      }
+      .password::-moz-placeholder {
+        font-size: 14px;
+        opacity: 1;
+      }
+      .password:-ms-input-placeholder {
+        font-size: 14px;
+        font-family: "Roboto", Helvetica, Arial, sans-serif;
+      }
+
+      .custom-file-input {
+        cursor: pointer;
+      }
+      .custom-file-input::-webkit-file-upload-button {
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+      .custom-file-input:hover::-webkit-file-upload-button {
+        background-color: gray;
+      }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <div>
+        <form
+          id="upload"
+          action="/files"
+          enctype="multipart/form-data"
+          method="POST"
+          class="grid"
+        >
+          <div class="field"><label for="fileUpload">Upload File</label></div>
+          <div class="field">
+            <input
+              id="fileUpload"
+              class="custom-file-input"
+              type="file"
+              name="myFile"
+            />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+          </div>
+          <div class="field">
+            <input
+              class="text-input password"
+              id="password"
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              value=""
+            />
+          </div>
+          <div class="submit">
+            <input class="button" type="submit" value="Upload a file" />
+          </div>
+        </form>
+      </div>
+      <div class="realtime-editor">
+        <form id="realtimeEditor" class="grid">
+          <label for="openEditor">Editor</label>
+          <button
+            id="editorToggleButton"
+            class="button"
+            onclick="toggleEditor(event)"
+          >
+            Open Editor
+          </button>
+          <textarea
+            id="editor"
+            placeholder="Realtime editor offline..."
+            disabled="true"
+            autocomplete="off"
+          ></textarea>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let editorToggle = false;
+      let socket = null;
+      const log = console.log;
+
+      const editorForm = document.getElementById("realtimeEditor");
+      const editorInput = document.getElementById("editor");
+      const editorToggleButton = document.getElementById("editorToggleButton");
+
+      function onTextEdit(event, socket) {
+        const text = editor.value;
+        socket.send(text);
+      }
+
+      function onSocketConnection(socket) {
+        log("a user connected");
+        editorInput.placeholder = "Realtime editor online...";
+        editor.addEventListener("keyup", (e) => onTextEdit(e, socket));
+      }
+
+      function onSocketDisconnection() {
+        log("a user disconnected");
+        editorInput.placeholder = "Realtime editor offline...";
+        editor.removeEventListener("keyup", (e) => onTextEdit(e, socket));
+      }
+
+      function toggleEditor(e) {
+        e.preventDefault();
+        editorToggle = !editorToggle;
+        editorInput.disabled = !editorToggle;
+        editorToggleButton.innerText = `${
+          editorToggle ? "Close" : "Open"
+        } Editor`;
+
+        if (editorToggle) {
+          socket = io();
+          socket.on("connect", () => onSocketConnection(socket));
+          socket.on("disconnect", () => onSocketDisconnection(socket));
+          socket.on("message", (data) => {
+            editor.value = data;
+          });
+        } else {
+          socket.disconnect();
+        }
+      }
+    </script>
+  </body>
+</html>
